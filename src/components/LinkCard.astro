@@ -1,0 +1,60 @@
+---
+interface Props {
+  title: string;
+  url: string;
+  icon?: string;
+  color?: string;
+}
+
+const { title, url, icon = '🔗', color = '#667eea' } = Astro.props;
+---
+
+<a href={url} target="_blank" rel="noopener noreferrer" class="link-card" style={`--color: ${color}`}>
+  <i class={`bi ${icon}`}></i>
+  <span class="title">{title}</span>
+  <span class="arrow">→</span>
+</a>
+
+<style>
+  .link-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: white;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #333;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--color);
+    cursor: pointer;
+  }
+
+  .link-card:hover {
+    transform: translateX(8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+
+  .icon {
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .title {
+    flex: 1;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .arrow {
+    color: var(--color);
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .link-card:hover .arrow {
+    opacity: 1;
+  }
+</style>

@@ -1,11 +1,70 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import LinkCard from '../components/LinkCard.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+interface Link {
+  title: string;
+  url: string;
+  icon: string;
+  color: string;
+}
+
+const links: Link[] = [
+  {
+    title: 'Lokasi Vita Faefa Kost',
+    url: 'https://maps.app.goo.gl/pfTdRnAC3bAsdbQG9',
+    icon: 'bi-geo-alt-fill',
+    color: '#E4405F'
+  },
+  {
+    title: 'Whatsaap Chat',
+    url: 'https://wa.me/6285201326109',
+    icon: 'bi-whatsapp',
+    color: '#FF0001'
+  },
+  {
+    title: 'Gmail For Bussiness',
+    url: 'https://mail.google.com/mail/u/0/?fs=1&to=vitafaefa.official@gmail.com&su=Subject&body=Body',
+    icon: 'bi-envelope-fill',
+    color: '#333333'
+  }
+];
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="My Linktree">
+  <div class="container">
+    <div class="header">
+      <img src="/avatar.jpg" alt="Profile" class="avatar" />
+      <h1 class="name">Your Name</h1>
+      <p class="bio">Creative Developer & Digital Creator</p>
+    </div>
+
+    <div class="links">
+      {links.map((link) => (
+        <LinkCard
+          title={link.title}
+          url={link.url}
+          icon={link.icon}
+          color={link.color}
+        />
+      ))}
+    </div>
+  </div>
 </Layout>
+
+<style>
+  .links {
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
