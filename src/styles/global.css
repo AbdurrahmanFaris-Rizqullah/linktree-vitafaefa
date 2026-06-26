@@ -11,8 +11,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.14), transparent 18%),
-    linear-gradient(160deg, #0d1431 0%, #181f4e 53%, #261f5d 100%);
+  background: linear-gradient(180deg, #5A8A72 0%, #2A4D38 100%);
   padding: 24px;
 }
 
