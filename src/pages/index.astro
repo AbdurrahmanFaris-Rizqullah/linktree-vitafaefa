@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import LinkCard from '../components/LinkCard.astro';
+import avatarUrl from '../assets/Avatar.png?url';
 
 interface Link {
   title: string;
@@ -14,19 +15,25 @@ const links: Link[] = [
     title: 'Lokasi Vita Faefa Kost',
     url: 'https://maps.app.goo.gl/pfTdRnAC3bAsdbQG9',
     icon: 'bi-geo-alt-fill',
-    color: '#E4405F'
+    color: '#BDBDBD'
   },
   {
     title: 'Whatsaap Chat',
     url: 'https://wa.me/6285201326109',
     icon: 'bi-whatsapp',
-    color: '#FF0001'
+    color: '#BDBDBD'
   },
   {
     title: 'Gmail For Bussiness',
-    url: 'https://mail.google.com/mail/u/0/?fs=1&to=vitafaefa.official@gmail.com&su=Subject&body=Body',
-    icon: 'bi-envelope-fill',
-    color: '#333333'
+    url: 'mailto:vitafaefa.official@gmail.com',
+    icon: 'bi-google',
+    color: '#BDBDBD'
+  },
+  {
+    title: 'Web Dashboard Kost (Coming Soon)',
+    url: '#',
+    icon: 'bi-house-fill',
+    color: '#BDBDBD'
   }
 ];
 ---
@@ -34,9 +41,10 @@ const links: Link[] = [
 <Layout title="My Linktree">
   <div class="container">
     <div class="header">
-      <img src="/avatar.jpg" alt="Profile" class="avatar" />
-      <h1 class="name">Your Name</h1>
-      <p class="bio">Creative Developer & Digital Creator</p>
+      <img src={avatarUrl} alt="Profile" class="avatar" />
+      <!-- <span class="tag">Kost Premium</span> -->
+      <h1 class="name">Vita Faefa Kost</h1>
+      <p class="bio, tag">Kost Putri Hommy, Nyaman, & Tenang di <b>Daerah Sukun - Janti</b> </p>
     </div>
 
     <div class="links">
@@ -49,12 +57,39 @@ const links: Link[] = [
         />
       ))}
     </div>
+
+    <footer class="footer">
+      <p>© 2026 Faris. All rights reserved.</p>
+    </footer>
   </div>
 </Layout>
 
 <style>
   .links {
+    display: grid;
+    gap: 14px;
     animation: fadeIn 0.5s ease-in;
+  }
+
+  .footer {
+    margin-top: 34px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.9rem;
+  }
+
+  .tag {
+    display: inline-block;
+    margin-bottom: 18px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    color: #e6e6ff;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.08);
   }
 
   @keyframes fadeIn {
